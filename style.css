@@ -16,20 +16,20 @@
     width: 466px;
     left: 122px;
     top: 228px;
- }
+}
 
- .mobile-pic {
-     display: none;
- }
- .right {
+.mobile-pic {
+    display: none;
+}
+
+.right {
     background: url(assets/Screen-Shot-2020-04-21-at-5.06.png);
     position: absolute;
     width: 730px;
     height: 900px;
     left: 710px;
     top: 0px;
- }
-
+}
 
 h5 {
     font-family: IBM Plex Sans;
@@ -79,7 +79,7 @@ input {
     position: absolute;
     opacity: 0;
     z-index: -1;
-  }
+}
 
 /* Makes entire line clickable for the accordian */
 label {
