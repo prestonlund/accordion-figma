@@ -1,0 +1,249 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap');
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+    background: #EDF0F1;
+}
+.container {
+    min-height: 100vh;
+    display: flex;
+}
+
+.left {
+    margin-top: -129px;
+    position: absolute;
+    width: 466px;
+    left: 122px;
+    top: 228px;
+ }
+
+ .mobile-pic {
+     display: none;
+ }
+ .right {
+    background: url(assets/Screen-Shot-2020-04-21-at-5.06.png);
+    position: absolute;
+    width: 730px;
+    height: 900px;
+    left: 710px;
+    top: 0px;
+ }
+
+
+h5 {
+    font-family: IBM Plex Sans;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 23px;
+    text-transform: uppercase;
+    letter-spacing: 0em;
+    margin-bottom: 11px;
+
+    /* Betta */
+
+    color: #8B3CE6;
+}
+
+h3 {
+    font-family: IBM Plex Sans;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 41px;
+    letter-spacing: 0em;
+    text-align: left;
+    margin-bottom: 11px;
+    /* or 41px */
+
+    /* Orca */
+    color: #001D30;
+}
+
+p {
+    font-family: IBM Plex Sans;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px;
+    letter-spacing: 0em;
+    text-align: left;    
+    
+    /* Orca */
+    color: #001D30;
+}
+
+/* Hides checkboxes used for accordians */
+input {
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+  }
+
+/* Makes entire line clickable for the accordian */
+label {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Hides description text until you click the accordian. */
+.tab-content {
+    max-height: 0;
+    overflow: hidden;
+    visibility: hidden;
+    transition: all .35s;
+}
+
+.top-p {
+    margin-bottom: 50px;
+}
+
+/* I had to change the border pixels slightly because
+ one of the hr's was acting weird and this fixed it*/
+hr {
+    border: .8px solid #CFD4D9;
+    margin-bottom: 24px;
+}
+
+.top-hr {
+    margin-bottom: 21px;
+}
+
+h4 {
+    font-family: IBM Plex Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 17px;
+    line-height: 146.28%;
+    margin-bottom: 25px;
+
+    /* Orca */
+    color: #001D30;
+}
+
+/* Arrows */
+h4 span {
+    float: right;
+    margin-right: 20px;
+}
+
+/* Transition for arrows */
+h4 span img {
+    transition: all .35s;
+}
+
+.feedback {
+    margin-bottom: 28px;
+}
+
+h6 {
+    font-family: IBM Plex Sans;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 146.28%;
+    margin-bottom: 4px;
+
+    /* Betta */
+    color: #8B3CE6;
+}
+
+.bottom-p {
+    margin-bottom: 20px;
+}
+
+button {
+    align-items: center;
+    text-align: center;
+    margin-bottom: 23px;
+    cursor: pointer;
+    width: 124px;
+    height: 31px;
+
+    /* Betta */
+    background: #8B3CE6;
+    border-radius: 100px;
+    border: none;
+
+    /* Text in button */
+    font-family: IBM Plex Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 124%;
+    /* identical to box height, or 19px */
+
+    /* Albatross */
+    color: #FFFFFF;
+}
+
+/* Hide arrow in button until hover */
+button::before {
+    content: url(assets/Arrow-right.svg);
+    opacity: 0;
+    margin-left: -10px;
+    margin-right: 5px;
+    transition: .35s ease;
+}
+
+/* Reveal arrow on hover */
+button:hover::before {
+    opacity: 100%;
+}
+
+/* Rotate arrow when accordian is clicked */
+input:checked ~ h4 label span img{
+    transform: rotate(180deg);
+}
+
+/* Reveal description text on click */
+input:checked ~ .tab-content {
+    max-height: 100vh;
+    visibility: visible;
+}
+
+
+/* Media query for mobile version */
+@media screen and (max-width: 412px) {
+    .container {
+        width: 375px;
+        /* height: 1232px; */
+        display: block;
+    }
+
+    .mobile-pic {
+        background: url(assets/Screen-Shot-2020-04-21-at-5.06-mobile.png);
+        height: 283px;
+        width: 375px;
+        display: block;
+    }
+
+    .right {
+        display: none;
+    }
+
+    .left {
+        position: absolute;
+        margin-top: 50px;
+        padding-left: 43px;
+        padding-right: 43px;
+        width: 375px;
+        /* height: 972px; */
+        left: 0px;
+        top: 270px;
+    }
+    
+    h4 span {
+        margin-right: 10px;
+    }
+
+    h5 {
+        margin-top: 19px;
+    }
+
+    .bottom-hr {
+        margin-bottom: 65px;
+    }
+}
