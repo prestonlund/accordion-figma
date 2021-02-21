@@ -206,7 +206,7 @@ input:checked ~ .tab-content {
 
 
 /* Media query for mobile version */
-@media screen and (max-width: 412px) {
+@media screen and (max-width: 700px) {
     .container {
         width: 375px;
         /* height: 1232px; */
