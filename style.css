@@ -1,49 +1,56 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap');
 
 * {
+    --betta-color: #8B3CE6;
+    --orca-color: #001D30;
     margin: 0;
     box-sizing: border-box;
     background: #EDF0F1;
 }
+body {
+    overflow-y: scroll;
+}
+
 .container {
     min-height: 100vh;
     display: flex;
 }
 
 .left {
-    margin-top: -129px;
-    position: absolute;
-    width: 466px;
-    left: 122px;
-    top: 228px;
+    width: 49vw;
+    padding: 6.6% 8% 4%;
 }
 
 .mobile-pic {
     display: none;
 }
 
+.mobile-image {
+    width: 100%;
+    height: auto;
+}
+
+.full-image {
+    width: 100%;
+    height: auto;
+}
+
 .right {
-    background: url(assets/Screen-Shot-2020-04-21-at-5.06.png);
-    position: absolute;
-    width: 730px;
-    height: 900px;
-    left: 710px;
-    top: 0px;
+    width: 51vw;
 }
 
 h5 {
     font-family: IBM Plex Sans;
     font-style: normal;
     font-weight: 600;
-    font-size: 15px;
+    font-size: .93rem; /* font-size 15px */
     line-height: 23px;
     text-transform: uppercase;
     letter-spacing: 0em;
     margin-bottom: 11px;
 
     /* Betta */
-
-    color: #8B3CE6;
+    color: var(--betta-color);
 }
 
 h3 {
@@ -58,12 +65,12 @@ h3 {
     /* or 41px */
 
     /* Orca */
-    color: #001D30;
+    color: var(--orca-color);
 }
 
 p {
     font-family: IBM Plex Sans;
-    font-size: 17px;
+    font-size: 1.05rem; /* font-size 17px */
     font-style: normal;
     font-weight: 400;
     line-height: 28px;
@@ -71,7 +78,7 @@ p {
     text-align: left;    
     
     /* Orca */
-    color: #001D30;
+    color: var(--orca-color);
 }
 
 /* Hides checkboxes used for accordians */
@@ -120,7 +127,7 @@ h4 {
     margin-bottom: 25px;
 
     /* Orca */
-    color: #001D30;
+    color: var(--orca-color);
 }
 
 /* Arrows */
@@ -147,7 +154,7 @@ h6 {
     margin-bottom: 4px;
 
     /* Betta */
-    color: #8B3CE6;
+    color: var(--betta-color);
 }
 
 .bottom-p {
@@ -158,12 +165,16 @@ button {
     align-items: center;
     text-align: center;
     margin-bottom: 23px;
+    margin-left: 1px;
     cursor: pointer;
+    overflow: hidden;
+    position: relative;
     width: 124px;
     height: 31px;
+    transition: .3s ease;
 
     /* Betta */
-    background: #8B3CE6;
+    background: var(--betta-color);
     border-radius: 100px;
     border: none;
 
@@ -182,44 +193,62 @@ button {
 /* Hide arrow in button until hover */
 button::before {
     content: url(assets/Arrow-right.svg);
-    opacity: 0;
-    margin-left: -10px;
-    margin-right: 5px;
-    transition: .35s ease;
+    position: absolute;
+    transform: translate3d(-2.5rem,2.5rem,0);
+    transition: .3s ease;
 }
 
 /* Reveal arrow on hover */
 button:hover::before {
-    opacity: 100%;
+    transform: translate3d(-1.1rem, .1rem, 0);
+    margin-left: 0px;
 }
 
-/* Rotate arrow when accordian is clicked */
+button:hover {
+    padding-left: 22px;
+}
+
+/* Rotate Subsequent-sibling Combinator arrow when accordian is clicked */
 input:checked ~ h4 label span img{
     transform: rotate(180deg);
 }
 
-/* Reveal description text on click */
+/* Reveal Subsequent-sibling Combinator description text on click */
 input:checked ~ .tab-content {
     max-height: 100vh;
     visibility: visible;
 }
 
 
+/* Media query for medium size screen */
+@media screen and (max-width: 1000px) and (min-width: 700px) {
+    p, h5 {
+        font-size: .9em;
+    }
+    h3 {
+        font-size: 20px;
+        line-height: 25px;
+    }
+    h4 {
+        font-size: 14px;
+        line-height: 100%;
+    }
+    .top-p {
+        margin-bottom: 30px;
+    }
+    .left {
+        padding: 4% 6% 3%;
+    }
+}
+
+
 /* Media query for mobile version */
 @media screen and (max-width: 700px) {
-    * {
-        max-width: 375px;
-    }
-
     .container {
-        width: 375px;
         display: block;
     }
 
     .mobile-pic {
-        background: url(assets/Screen-Shot-2020-04-21-at-5.06-mobile.png);
-        height: 283px;
-        width: 375px;
         display: block;
     }
 
@@ -228,13 +257,10 @@ input:checked ~ .tab-content {
     }
 
     .left {
-        position: absolute;
-        margin-top: 50px;
+        margin-top: 4px;
         padding-left: 43px;
         padding-right: 43px;
-        width: 375px;
-        left: 0px;
-        top: 270px;
+        width: 100%;
     }
     
     h4 span {
